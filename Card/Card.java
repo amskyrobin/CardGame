@@ -29,13 +29,5 @@ public class Card {
     this.suit = suit;
   }
 
-// private void setCardValue(int value){
-//   if (value > 10)
-//     this.value = 10;
-//   else if (value < 1)
-//     this.value = 1;
-//   else
-//     this.value = value;
-// }
 
 }

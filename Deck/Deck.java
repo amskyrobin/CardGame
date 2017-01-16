@@ -1,36 +1,67 @@
 package Deck;
 import java.util.*;
 import Card.*;
+import Participants.*;
 
 
 public class Deck {
 
-  private ArrayList<Card> deck;
+  private ArrayList<Card> cardList;
   
 
   public Deck() {
-    this.deck = new ArrayList<Card>();
+    this.cardList = new ArrayList<Card>();
   }
 
 
   public void addCardToDeck(Card card){
-    deck.add(card);
+    cardList.add(card);
   }
 
   public int cardCount(){
-    return deck.size();
+    return cardList.size();
   }
 
 
-  public void fillDeck(){
+  public void fill(){
     for(CardType type: CardType.values())
       for(SuitType suit: SuitType.values()){
-      addCardToDeck(new Card(type, suit));
+        addCardToDeck(new Card(type, suit));
+      }
     }
-  }
 
-  public void shuffle(){
-    Collections.shuffle(deck);
-  }
-}
-      
+
+    public void fillAndShuffle(){
+      this.fill();
+      Collections.shuffle(cardList);
+    }
+
+
+   public void removeCard(Card cardImprint) {
+        Card cardToDelete = null;
+        for (Card card : cardList) {
+              if (cardImprint.getCardValue() == card.getCardValue() && cardImprint.getSuit().equals(card.getSuit())) {
+                cardToDelete = card;
+                break;
+              }
+        }
+        if (cardToDelete != null)
+            cardList.remove(cardToDelete);
+   } 
+
+   public Card removeTopCard(){
+    this.fill();
+    return cardList.remove(0);
+   }
+
+  public Card getRemovedCardValue(){
+    Card removedCard = this.removeTopCard();
+    return removedCard;
+    }
+
+    public Card removeFromShuffledDeck(){
+      this.fillAndShuffle();
+      return cardList.remove(0);
+    }
+   }
+
