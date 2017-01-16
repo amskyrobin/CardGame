@@ -85,10 +85,23 @@ public class CardGameTest{
   assertEquals(CardType.TWO, firstCard.getCardType());
   }
 
+//below test will be random outcome due to shuffle
+  // @Test
+  // public void canGetShuffledDeckValue(){
+  //   Deck deck = new Deck();
+  //   Card testCard = deck.removeFromShuffledDeck();
+  //   assertEquals(CardType.TWO, testCard.getCardType());
+  // }
+
   @Test
-  public void canGetShuffledDeckValue(){
-    Deck deck = new Deck();
-    Card testCard = deck.removeFromShuffledDeck();
-    assertEquals(CardType.TWO, testCard.getCardType());
+  public void canGetIntValueFromCardinHand(){
+    Player player = new Player("Amy");
+    int testCard = player.getCardValueFromHand();
+    assertEquals(2, testCard);
+  }
+
+  @Test 
+  public void checkHandTwoWins(){
+   
   }
 }

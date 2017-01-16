@@ -4,7 +4,7 @@ import Card.*;
 import Deck.*;
 
 public abstract class Participants{
-  
+
   private String name;
   private ArrayList<Card> hand;
 
@@ -29,10 +29,18 @@ public abstract class Participants{
     return hand.size();
   }
 
-  public CardType getCardValueFromHand(){
+  public int getCardValueFromHand(){
     Card card = this.dealCardToHand();
-    return card.getCardType();
+    return card.getCardValue();
   }
 
-  
-}
+  public void compareHand(){
+    int handOne = this.getCardValueFromHand();
+    int handTwo = this.getCardValueFromHand();
+    if(handOne >= handTwo){ 
+      System.out.println("hand one has won");}
+      else { 
+       System.out.println("hand two has won");
+     }
+   }
+ }
